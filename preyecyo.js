@@ -1,24 +1,69 @@
-let contactos = ["jafetrodriguez", "oscarramirez", "julianalvana", "danielaavendanio"];
-
-function agregarContacto(nombreContacto) {
-    contactos.push(nombreContacto);
+let persona1 = {
+    id:1,
+    nombres:"morty antonio",
+    apellidos:"smith sanchez",
+    telefono:"123456789",
+    ubicaciones:{
+        ciudad:"springfield",
+        direccion:"avenidad siempre viva",
+    }
 }
-
-agregarContacto("sergiovargas");
-
-function borrarContacto(nombreContacto) {
-    let indiceContacto = contactos.indexOf(nombreContacto);
-    contactos.splice(indiceContacto, 1);
-    
+let persona2 = {
+    id:2,
+    nombres:"Homero J",
+    apellidos:"Simpson",
+    telefono:"123456789",
+    ubicaciones:{
+        ciudad:"springfield",
+        direccion:"avenidad siempre viva",
+    }
 }
-borrarContacto("jafetrodriguez");
-console.log(contactos);
-
-function imprimirContactos(){
-    for (const contacto of contactos) {
-        console.log(contacto);
+let persona3 = {
+    id:3,
+    nombres:"Lukas ",
+    apellidos:"Skywaker",
+    telefono:"1234567891",
+    ubicaciones:{
+        ciudad:"El espacio",
+        direccion:"La luna",
     }
 }
 
+let personas = [persona1,   persona2, persona3];
 
-imprimirContactos();
+function agregrarContacto(id, nombres, apellidos, telefono, ciudad, direccion) {
+    nuevoContacto = {
+        id:id,
+        nombres:nombres,
+        apellidos:apellidos,
+        telefono:telefono,
+        ubicacion:{
+            ciudad:ciudad,
+            direccion:direccion
+        }}
+    personas.push(nuevoContacto);
+
+
+}
+agregrarContacto(123,"jota","bebesin","3112546878949849984564", "bogoteishon", "avenidad siempre muerta")
+
+
+function eliminarContactoPorId(id){
+     personas = personas.filter(persona => persona.id != id) 
+}
+eliminarContactoPorId(2)
+
+function eliminarContactoPorNombres(nombres){
+    personas = personas.filter(persona => persona.nombres != nombres)
+}
+eliminarContactoPorNombres("jota")
+
+
+function mostrarEnPantalla() {
+    personas.forEach(persona => {
+        console.log(persona)
+    });
+}
+
+mostrarEnPantalla();
+
