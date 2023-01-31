@@ -58,12 +58,28 @@ function eliminarContactoPorNombres(nombres){
 }
 eliminarContactoPorNombres("jota")
 
-
 function mostrarEnPantalla() {
     personas.forEach(persona => {
         console.log(persona)
     });
 }
-
 mostrarEnPantalla();
 
+function actualizarContactos(id, nombres, apellidos, telefono, ciudad, direccion){
+    for (let i = 0; i < personas.length; i++) {
+        if (personas[i].id === id) {
+            personas[i] = {
+                id,
+                nombres: nombres,
+                apellidos: apellidos,
+                telefono: telefono,
+                ubicaciones: {
+                    ciudad: ciudad,
+                    direccion: direccion
+                }
+            }
+        }
+    }
+}
+actualizarContactos(1,"hoto", "apellidoasd","1312314123","bogotaad","calleasd12")
+console.log(personas)
